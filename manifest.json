@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "Aww Yiss",
+  "version": "1.0",
+
+  "description": "Track your favorite tunes",
+
+  "icons": {
+    "48": "icon/awwyiss_50.png",
+    "96": "icon/awwyiss_100.png"
+    
+  },
+  
+  "browser_action": {
+    "default_icon": "icon/awwyiss_50.png",
+    "default_title": "Aww Yiss",
+    "default_popup": "screen/main.htm"
+  },
+  
+  "permissions": [
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mixcloud.com/*"],
+      "js": ["script/awwyiss.js"]
+    }
+  ]
+
+}
