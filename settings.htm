@@ -1,0 +1,27 @@
+<html>
+<head></head>
+<body>
+<h1>Aww Yiss</h1>
+<input type="button" id="getCurrentlyPlaying" value="Get Currently Playing" />
+<div id="info"></div>
+</body>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready({$('#info').text('hello')});
+    
+    $(document).on('click', '#getCurrentlyPlaying', $('#info').text('click'));
+    
+    var info = document.getElementById('info');
+    function getCurrentlyPlaying(){
+        info.innerText = 'go';
+        var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+        
+        gettingActiveTab.then((tabs) => {
+            console.log('send', tabs[0].id);
+            browser.tabs.sendMessage(tabs[0].id, {});
+        });
+    }
+        
+</script>
+</html>
